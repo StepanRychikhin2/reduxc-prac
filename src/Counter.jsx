@@ -1,25 +1,17 @@
-import { useState } from 'react'
 import Btn from './Btn'
-import { useSelector , useDispatch } from 'react-redux'
-
-
+import { useSelector, useDispatch } from 'react-redux'
 
 export default function Counter() {
-	// const [count, setCount] = useState(0)
-const counterValue = useSelector((state) => {
-    return state.counter
-})
+	const counterValue = useSelector((state) => {
+		return state.counter
+	})
 
-const dispatch = useDispatch()
+	const dispatch = useDispatch()
 	function maxCount() {
-dispatch({ type: 'addNumber', payload: 5 })
-		// const newCount = count + 1
-		// setCount(newCount)
+		dispatch({ type: 'addNumber', payload: 1 })
 	}
 	function minCount() {
-        dispatch({ type: 'minisNumber', payload: 2 })
-		// const newCount = count - 1
-		// setCount(newCount)
+		dispatch({ type: 'minisNumber', payload: 1 })
 	}
 
 	return (

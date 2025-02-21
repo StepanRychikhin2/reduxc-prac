@@ -1,8 +1,7 @@
-function Btn({click , title}) {
+function Btn({ click, title }) {
 	return (
 		<>
 			<button onClick={click}>{title}</button>
-
 		</>
 	)
 }

@@ -1,5 +1,7 @@
-import { createStore } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
 import { composeWithDevTools } from '@redux-devtools/extension'
+import { logger } from './mmiddlewere/logger'
+
 const state = {
 	name: 'redux',
 	counter: 0,
@@ -12,17 +14,12 @@ const reduser = (state, action) => {
 		}
 	} else if (action.type === 'minisNumber') {
 		return {
-			counter: state.counter - action.payload
+			counter: state.counter - action.payload,
 		}
 	} else {
-        return state;
-    }
-
+		return state
+	}
 }
 
-const store = createStore(reduser, state, composeWithDevTools())
-// цю дію робить useDispach 
-// store.dispatch({ type: 'addNumber', payload: 5 })
-// store.dispatch({ type: 'minisNumber', payload: 2 })
-
+const store = createStore(reduser, state,  applyMiddleware(logger))
 export default store
